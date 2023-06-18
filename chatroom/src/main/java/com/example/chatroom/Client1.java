@@ -10,6 +10,6 @@ public class Client1 {
         userName=sc.nextLine();
         passWord=sc.nextLine();
         birthYear=sc.nextInt();sc.nextLine();
-        bio=sc.nextLine();
+        bio=sc.nextLine(); sc.nextLine();
     }
 }
