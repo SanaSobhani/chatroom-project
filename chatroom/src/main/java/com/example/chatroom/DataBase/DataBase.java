@@ -1,8 +1,7 @@
 package com.example.chatroom.DataBase;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class DataBase {
     String URL = "jdbc:mysql://localhost/messager"; // address of the database we use
@@ -13,5 +12,15 @@ public class DataBase {
         connection = DriverManager.getConnection(URL , UserName , PassWord);
         Class.forName("com.mysql.cj.jdbc.Driver");
 
+    }
+    public ArrayList<String> select() throws SQLException {
+        ArrayList<String> messagesArrayList = new ArrayList<>();
+        String sqlCmd ="SELECT  UserName , Message FROM messages";
+        Statement statement = connection.prepareStatement(sqlCmd);
+        ResultSet resultSet = statement.executeQuery(sqlCmd);
+        while(resultSet.next()){
+            messagesArrayList.add(resultSet.getString("UserName") + " : " +resultSet.getString("Message"));
+        }
+        return messagesArrayList;
     }
 }
