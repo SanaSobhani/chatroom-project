@@ -23,4 +23,9 @@ public class DataBase {
         }
         return messagesArrayList;
     }
+    void saveToDataBase(String message, String clientUserName) throws SQLException, ClassNotFoundException {
+        String sqlCmd =String.format("INSERT INTO `messages` (`NumberOfMessages`, `UserName`, `Message`) VALUES (NULL,'%s', '%s')" , clientUserName ,message);
+        Statement statement = connection.prepareStatement(sqlCmd); // need statement to prepare command
+        statement.execute(sqlCmd); // do the command
+    }
 }
