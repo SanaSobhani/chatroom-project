@@ -37,7 +37,19 @@ public class Server {
             this.out = out;
             threadID = threadCount;
         }
+        @Override
+        public void run() {
+            try {
+                String message;
+                out.println("Enter a user name");
+                userName = in.readLine();
+                out.println("@"+userName+" welcome to chatroom"); // send message to one that recently join not others
+                //--------------
 
+}catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }
 
