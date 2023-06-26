@@ -20,4 +20,14 @@ public class client {
         InputStreamReader reader = new InputStreamReader(clientSocket.getInputStream());
         BufferedReader in = new BufferedReader(reader);
         //--------------
+        ReceiveMessage receiveMessage = new ReceiveMessage(reader,clientSocket);
+        SendMessages sendMessages = new SendMessages(clientSocket,out);
+        Thread receiver = new Thread(receiveMessage);
+        Thread sender = new Thread(sendMessages);
+        sender.start();
+        receiver.start();
+        receiver.join();
+        sender.join();
+        out.close();
+        clientSocket.close();
     }}
