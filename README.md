@@ -1,56 +1,56 @@
-#💬 Java Multi-Threaded Chat Room
+# 💬 Java Multi-Threaded Chat Room
 
-A multi-threaded client-server chat application built with Java Sockets and MySQL.
-The server handles multiple clients concurrently and stores chat messages in a database.
+  A multi-threaded client-server chat application built with Java Sockets and MySQL.
+  The server handles multiple clients concurrently and stores chat messages in a database.
 
-#🚀 Features
+# 🚀 Features
 
-Multi-threaded server (each client handled in a separate thread)
+  Multi-threaded server (each client handled in a separate thread)
 
-Real-time message broadcasting
+  Real-time message broadcasting
 
-Persistent message storage using MySQL
+  Persistent message storage using MySQL
 
-Automatic loading of previous chat history for new users
+  Automatic loading of previous chat history for new users
 
-Basic Ping measurement
+  Basic Ping measurement
 
-Multiple clients can connect simultaneously
+  Multiple clients can connect simultaneously
 
-#🏗 Architecture
-##Server Side
+# 🏗 Architecture
+  ## Server Side
 
-ServerSocket listens on port 6666
+   ServerSocket listens on port 6666
 
-Each new client connection is assigned a CommunicationHandler thread
+   Each new client connection is assigned a CommunicationHandler thread
 
-Messages are:
+   Messages are:
 
-Saved into MySQL database
+  Saved into MySQL database
 
-Broadcast to other connected clients
+  Broadcast to other connected clients
 
-##Client Side
+  ## Client Side
 
-Each client:
+   Each client:
 
-Connects to server via Socket
+   Connects to server via Socket
 
-Uses:
-SendMessages thread (to send messages)
+   Uses:
+      SendMessages thread (to send messages) / 
+      ReceiveMessage thread (to receive messages)
+      
+# 🛠 Technologies Used
 
-ReceiveMessage thread (to receive messages)
-#🛠 Technologies Used
+  Java (Core Java, Multithreading)
 
-Java (Core Java, Multithreading)
+  Java Sockets (TCP)
 
-Java Sockets (TCP)
+  MySQL
 
-MySQL
+  JDBC
 
-JDBC
-
-#📂Project Structure
+# 📂Project Structure
 
 ```
 chatroom/
